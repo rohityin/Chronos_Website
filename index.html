@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2'><circle cx='12' cy='12' r='9'/><polyline points='12 7 12 12 15 15'/></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHRONOS ATELIER | Hand-Assembled Haute Horlogerie</title>
+    <meta name="description" content="A limited-edition artisan series of 25 hand-assembled mechanical timepieces. Microscopic craftsmanship, 904L steel, sapphire crystal, and chronometer-grade tourbillon calibre." />
+    <!-- Typography: Cormorant Garamond & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Preload first video frame for instantaneous scroll canvas startup -->
+    <link rel="preload" as="image" href="/video-frames-4k/frame-001.jpg" fetchpriority="high" />
+  </head>
+  <body class="bg-[#06080b] text-[#e2e8f0] antialiased selection:bg-[#38bdf8]/20 selection:text-[#38bdf8] overflow-x-hidden min-h-screen">
+    <div id="root"></div>
+    <script>
+      // Clear any service workers or caches previously registered on localhost:5173
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(regs => {
+          regs.forEach(reg => reg.unregister());
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(names => {
+          names.forEach(name => caches.delete(name));
+        });
+      }
+      document.title = "CHRONOS ATELIER | Hand-Assembled Haute Horlogerie";
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
