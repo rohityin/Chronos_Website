@@ -3,7 +3,6 @@ import { useParallax } from '../hooks/useParallax';
 
 interface HeroProps {
   onOpenPreorder: () => void;
-  onExploreLoupe?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenPreorder }) => {

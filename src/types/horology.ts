@@ -11,13 +11,3 @@ export interface WatchEdition {
   description: string;
 }
 
-export interface Hotspot {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  x: number;
-  y: number;
-  magnification: string;
-  artisanTechnique: string;
-}

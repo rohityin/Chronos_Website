@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { Menu, X } from "lucide-react";
 import {
   motion,
   AnimatePresence,
@@ -264,9 +264,9 @@ export const MobileNavToggle = ({
       aria-label="Toggle navigation menu"
     >
       {isOpen ? (
-        <IconX className="w-6 h-6 text-white" />
+        <X className="w-6 h-6 text-white" />
       ) : (
-        <IconMenu2 className="w-6 h-6 text-white" />
+        <Menu className="w-6 h-6 text-white" />
       )}
     </button>
   );

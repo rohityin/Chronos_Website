@@ -45,13 +45,6 @@ export function App() {
     setIsPreorderOpen(true);
   };
 
-  const handleScrollToLoupe = () => {
-    const el = document.getElementById('movement');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleAllocationConfirmed = (_serial: string) => {};
 
   return (
@@ -69,7 +62,6 @@ export function App() {
         {/* Section 1: Parallax Hero */}
         <Hero
           onOpenPreorder={handleOpenPreorderDefault}
-          onExploreLoupe={handleScrollToLoupe}
         />
 
         {/* Section 2: Microscopic Craftsmanship & Interactive Loupe */}
