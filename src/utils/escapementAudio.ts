@@ -12,9 +12,12 @@ let beatCount = 0;
 function getContext(): AudioContext | null {
   if (typeof window === 'undefined') return null;
   if (!audioCtx) {
-    audioCtx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const AudioContextClass = window.AudioContext ?? window.webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtx = new AudioContextClass();
+    }
   }
-  if (audioCtx.state === 'suspended') {
+  if (audioCtx?.state === 'suspended') {
     audioCtx.resume();
   }
   return audioCtx;

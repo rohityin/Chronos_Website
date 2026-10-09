@@ -6,7 +6,7 @@ interface BespokeConfiguratorProps {
   onSelectEditionForPreorder: (edition: WatchEdition, customNotes: { strap: string; monogram: string }) => void;
 }
 
-export const EDITIONS: WatchEdition[] = [
+export const EDITIONS = [
   {
     id: 'steel',
     name: 'Origin 904L Cryo-Steel',
@@ -19,13 +19,19 @@ export const EDITIONS: WatchEdition[] = [
     remainingSlots: 4,
     description: 'The pure horological purist specification. High specular reflection steel case contrasting against flame-blued titanium hands and exposed tourbillon escapement.',
   }
-];
+] as const satisfies readonly WatchEdition[];
+
+export interface StrapOption {
+  readonly id: 'alligator' | 'cordovan' | 'milanese';
+  readonly label: string;
+  readonly name: string;
+}
 
 const STRAP_OPTIONS = [
   { id: 'alligator', label: 'Alligator', name: 'Hand-Stitched Matte Black Alligator' },
   { id: 'cordovan', label: 'Cordovan', name: 'Honey Brown Horween Cordovan' },
   { id: 'milanese', label: 'Milanese', name: '904L Milanese Steel Mesh' },
-];
+] as const satisfies readonly StrapOption[];
 
 export const BespokeConfigurator: React.FC<BespokeConfiguratorProps> = ({
   onSelectEditionForPreorder,

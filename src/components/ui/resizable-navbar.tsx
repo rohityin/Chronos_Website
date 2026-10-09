@@ -67,11 +67,8 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     >
       <div className="pointer-events-auto w-full">
         {React.Children.map(children, (child) =>
-          React.isValidElement(child)
-            ? React.cloneElement(
-                child as React.ReactElement<{ visible?: boolean }>,
-                { visible },
-              )
+          React.isValidElement<{ visible?: boolean }>(child)
+            ? React.cloneElement(child, { visible })
             : child,
         )}
       </div>

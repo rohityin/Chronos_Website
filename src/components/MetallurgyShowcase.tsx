@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Compass, Droplet, Layers } from 'lucide-react';
 
+export type MaterialSpecId = 'steel' | 'sapphire' | 'maillechort' | 'titanium';
+
 interface MaterialSpec {
-  id: string;
+  id: MaterialSpecId;
   name: string;
   shortName: string;
   chemicalFormula: string;
@@ -15,7 +17,7 @@ interface MaterialSpec {
   icon: React.ComponentType<{ className?: string }>;
 }
 
-const MATERIALS: MaterialSpec[] = [
+const MATERIALS = [
   {
     id: 'steel',
     name: '904L Cryo-Forged Steel',
@@ -68,7 +70,7 @@ const MATERIALS: MaterialSpec[] = [
     metric3: { label: 'Hardness', value: '349 HV' },
     icon: Compass,
   },
-];
+] as const satisfies readonly MaterialSpec[];
 
 export const MetallurgyShowcase: React.FC = () => {
   const [activeMaterial, setActiveMaterial] = useState<MaterialSpec>(MATERIALS[0]);

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Sparkles, Shield, Flame, Cpu } from 'lucide-react';
 
+export type FinishingTechniqueId = 'anglage' | 'poli-noir' | 'vis-bleutees' | 'cotes-de-geneve';
+
 interface FinishingTechnique {
-  id: string;
+  id: FinishingTechniqueId;
   title: string;
   tag: string;
   subtitle: string;
@@ -15,7 +17,7 @@ interface FinishingTechnique {
   icon: React.ComponentType<{ className?: string }>;
 }
 
-const FINISHING_TECHNIQUES: FinishingTechnique[] = [
+const FINISHING_TECHNIQUES = [
   {
     id: 'anglage',
     title: 'Anglage à la Main',
@@ -68,7 +70,7 @@ const FINISHING_TECHNIQUES: FinishingTechnique[] = [
     magnification: '10x Optical',
     icon: Cpu,
   },
-];
+] as const satisfies readonly FinishingTechnique[];
 
 export const MicroCraftsmanship: React.FC = () => {
   const [activeTechnique, setActiveTechnique] = useState<FinishingTechnique>(FINISHING_TECHNIQUES[0]);

@@ -13,6 +13,9 @@ interface PreorderModalProps {
   onAllocationConfirmed: (serialNumber: string) => void;
 }
 
+export const AVAILABLE_SERIALS = ['04/25', '07/25', '10/25', '13/25', '18/25', '25/25'] as const;
+export type AvailableSerial = (typeof AVAILABLE_SERIALS)[number];
+
 export const PreorderModal: React.FC<PreorderModalProps> = ({
   isOpen,
   onClose,
@@ -24,14 +27,14 @@ export const PreorderModal: React.FC<PreorderModalProps> = ({
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [country, setCountry] = useState('Switzerland');
-  const [selectedSerial, setSelectedSerial] = useState('07/25');
+  const [selectedSerial, setSelectedSerial] = useState<AvailableSerial>('07/25');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [allocationHash, setAllocationHash] = useState('');
 
   if (!isOpen) return null;
 
-  const availableSerials = ['04/25', '07/25', '10/25', '13/25', '18/25', '25/25'];
+  const availableSerials = AVAILABLE_SERIALS;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
